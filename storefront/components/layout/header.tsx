@@ -81,9 +81,9 @@ export default function Header() {
             </button>
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2">
-              <span className="font-heading text-2xl font-semibold tracking-tight">
-                Store
+            <Link href="/" className="flex items-center gap-2" aria-label="Noctura home">
+              <span className="noctura-wordmark text-xl md:text-2xl">
+                Noctura
               </span>
             </Link>
 

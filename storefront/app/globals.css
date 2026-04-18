@@ -4,35 +4,38 @@
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 0 0% 10%;
-    --muted: 40 10% 94%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 35 40% 50%;
+    /* Noctura — warm cream / espresso / copper */
+    --background: 36 28% 96%;
+    --foreground: 22 24% 12%;
+    --muted: 32 18% 91%;
+    --muted-foreground: 22 10% 38%;
+    --accent: 24 62% 44%;
     --accent-foreground: 0 0% 100%;
-    --border: 40 10% 88%;
-    --ring: 35 40% 50%;
-    --primary: 0 0% 10%;
-    --primary-foreground: 0 0% 98%;
-    --destructive: 0 72% 51%;
+    --border: 32 15% 85%;
+    --ring: 24 62% 44%;
+    --primary: 22 24% 12%;
+    --primary-foreground: 36 28% 96%;
+    --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 98%;
 
-    /* Brand colors (dynamically injected from Store.metadata.brand) */
-    /* Access in CSS: var(--brand-primary), var(--brand-secondary) */
-    /* Managed by BrandStyleInjector component */
+    /* Brand tokens */
+    --brand-espresso: 22 28% 14%;
+    --brand-cream: 36 36% 94%;
+    --brand-copper: 24 62% 44%;
+    --brand-sand: 32 22% 82%;
   }
 
   .dark {
-    --background: 0 0% 6%;
-    --foreground: 40 20% 94%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
-    --accent: 35 45% 55%;
+    --background: 22 24% 8%;
+    --foreground: 36 28% 94%;
+    --muted: 22 14% 14%;
+    --muted-foreground: 32 10% 62%;
+    --accent: 24 62% 52%;
     --accent-foreground: 0 0% 100%;
-    --border: 0 0% 16%;
-    --ring: 35 45% 55%;
-    --primary: 40 20% 94%;
-    --primary-foreground: 0 0% 6%;
+    --border: 22 14% 18%;
+    --ring: 24 62% 52%;
+    --primary: 36 28% 94%;
+    --primary-foreground: 22 24% 8%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 98%;
   }
@@ -99,6 +102,53 @@
 
   .bg-brand-secondary {
     background-color: var(--brand-secondary, hsl(var(--accent)));
+  }
+
+  /* Noctura-specific utilities */
+  .bg-espresso {
+    background-color: hsl(var(--brand-espresso));
+  }
+  .text-espresso {
+    color: hsl(var(--brand-espresso));
+  }
+  .bg-cream {
+    background-color: hsl(var(--brand-cream));
+  }
+  .text-copper {
+    color: hsl(var(--brand-copper));
+  }
+  .bg-copper {
+    background-color: hsl(var(--brand-copper));
+  }
+  .border-copper {
+    border-color: hsl(var(--brand-copper));
+  }
+
+  .noctura-wordmark {
+    font-family: var(--font-heading), serif;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  /* Marquee */
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  /* Subtle grain overlay */
+  .grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 }
 

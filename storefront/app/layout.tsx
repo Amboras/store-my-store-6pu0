@@ -30,10 +30,10 @@ const body = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Store — Modern Commerce',
-    template: '%s | Store',
+    default: 'Noctura — Specialty Coffee, Freshly Roasted',
+    template: '%s | Noctura',
   },
-  description: 'Discover curated products crafted with care. A modern ecommerce experience.',
+  description: 'Small-batch, single-origin specialty coffee — roasted to order and shipped within 48 hours. Freshness you can taste, sustainability you can trust.',
 }
 
 export default function RootLayout({
